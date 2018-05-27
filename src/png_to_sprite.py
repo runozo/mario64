@@ -15,4 +15,14 @@ print("Image has %s different colours" % len(color_count))
 # Pixels with a bit pair of "00" appear transparent, like "0" bits do in high resolution mode.
 # Pixels with a bit pair of "01" will have the color specified in address 53285/$D025.
 # Pixels with a bit pair of "11" will have the color specified in address 53286/$D026.
-# Pixels with a bit pair of "10" will have the color specified assigned to the sprite in question in the range 53287–53294/$D027–D02E.
+
+out = ''
+if len(color_count)<=4:
+    for y in range(im.size[1]):
+        for x in range(im.size[0]):
+            if pix[x,y] == (0, 0, 0, 255):
+                # transparent 
+                out.append('00 ')
+            
+
+

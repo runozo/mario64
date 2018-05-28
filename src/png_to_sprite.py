@@ -16,15 +16,17 @@ color_amount = 0
 c64_color_values = [('00', 'white'), ('01', 'blue'),
                     ('11', 'red'), ('10', 'yellow')]
 # Get the width and hight of the image for iterating over
+
 print("Image size is %sx%s" % im.size)
 print("Counting unique colours...")
+
 for y in range(im.size[1]):
     for x in range(im.size[0]):
         if not pix[x, y] in image_colors:
             image_colors[pix[x, y]] = color_amount
             color_amount += 1
-print("Image has %s unique colours" % len(image_colors))
-print(image_colors)
+
+print("Image has %s unique colours, converting..\n\n" % len(image_colors))
 
 out = ''
 if color_amount <= 4:
@@ -36,3 +38,4 @@ if color_amount <= 4:
     print(out)
 else:
     print("Too many colors for a c64 sprite, exiting.")
+print('Done.')
